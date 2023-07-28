@@ -30,7 +30,7 @@ const logLevelEnvName = "FC_TEST_LOG_LEVEL"
 var rootDisabled bool
 
 func init() {
-	if v := os.Getenv(rootDisableEnvName); len(v) != 0 {
+	if v := os.Getenv(rootDisableEnvName); !(v == "0" || v == "false") {
 		rootDisabled = true
 	}
 }

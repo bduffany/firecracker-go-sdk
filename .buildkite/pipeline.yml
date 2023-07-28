@@ -110,7 +110,7 @@ steps:
     commands:
       - export FC_TEST_TAP=fc-root-tap${BUILDKITE_BUILD_NUMBER}
       - export FC_TEST_DATA_PATH=${FC_TEST_DATA_PATH}
-      - make test EXTRAGOARGS="-exec 'sudo -E' -v -count=1 -race" DISABLE_ROOT_TESTS=
+      - make test EXTRAGOARGS="-exec 'sudo -E' -v -count=1 -race" DISABLE_ROOT_TESTS=false
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
       distro: "${BUILDKITE_AGENT_META_DATA_DISTRO}"
@@ -150,7 +150,7 @@ steps:
       DOCKER_IMAGE_TAG: "$BUILDKITE_BUILD_NUMBER"
     commands:
       - export FC_TEST_TAP=fc-mst-tap${BUILDKITE_BUILD_NUMBER}
-      - make test EXTRAGOARGS="-exec 'sudo -E' -v -count=1 -race" DISABLE_ROOT_TESTS=
+      - make test EXTRAGOARGS="-exec 'sudo -E' -v -count=1 -race" DISABLE_ROOT_TESTS=false
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
       distro: "${BUILDKITE_AGENT_META_DATA_DISTRO}"
